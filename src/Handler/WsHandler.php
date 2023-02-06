@@ -22,14 +22,14 @@ use IFlytek\Xfyun\Core\Traits\JsonTrait;
 use WebSocket\Client;
 use WebSocket\Exception;
 use GuzzleHttp\Psr7\Response;
-use Psr\Log\{LoggerAwareInterface, LoggerInterface, NullLogger};
+use Psr\Log\{NullLogger};
 
 /**
  * WebSocket处理类
  *
  * @author guizheng@iflytek.com
  */
-class WsHandler implements LoggerAwareInterface
+class WsHandler
 {
     use JsonTrait;
 
@@ -118,7 +118,7 @@ class WsHandler implements LoggerAwareInterface
         }
     }
 
-    public function setLogger(LoggerInterface $logger = null)
+    public function setLogger($logger = null)
     {
         $this->logger = $logger ?: new NullLogger();
     }
